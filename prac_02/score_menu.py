@@ -9,7 +9,15 @@ def main():
         if choice == "G":
             score = int(input("Enter Score: "))
             score = validate_score(score)
-
+        elif choice == "P":
+            print(determine_score(score))
+        elif choice == "S":
+            print("*" * score)
+        else:
+            print("Invalid choice!")
+        print(menu)
+        choice = input(">>> ").upper()
+    print("Program ended!")
 
 def validate_score(score):
     while score < 0 or score > 100:
