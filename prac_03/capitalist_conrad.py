@@ -16,9 +16,12 @@ MAX_PRICE = 100.0
 INITIAL_PRICE = 10.0
 
 price = INITIAL_PRICE
+FILENAME = "price_simulation.txt"
 number_of_days = 0
 
-print(f"${price:,.2f}")
+out_file = open(FILENAME, 'w')
+
+print(f"${price:,.2f}", file = out_file)
 
 while MIN_PRICE <= price <= MAX_PRICE:
     number_of_days += 1
@@ -36,4 +39,5 @@ while MIN_PRICE <= price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
-    print(f"On day {number_of_days} price is: ${price:,.2f}")
+    print(f"On day {number_of_days} price is: ${price:,.2f}", file=out_file)
+out_file.close()
