@@ -11,9 +11,17 @@
 # print(f"Hi {name}!")
 
 # 3) Read file and add the first 2 numbers
-with open("numbers", 'r') as in_file:
-    first_number = int(in_file.readline())
-    second_number = int(in_file.readline())
+# with open("numbers", 'r') as in_file:
+#     first_number = int(in_file.readline())
+#     second_number = int(in_file.readline())
+#
+# total = first_number + second_number
+# print(total)
 
-total = first_number + second_number
+#4) Open the file and read all lines then sum
+total = 0
+with open("numbers", 'r') as in_file:
+    for line in in_file:
+        total+= int(line)
+
 print(total)
