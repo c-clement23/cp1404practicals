@@ -22,7 +22,7 @@ def print_report(incomes, number_of_months):
     total = 0
     for month in range(1, number_of_months + 1):
         income, total = calculate_total_income(incomes, month, total)
-        print(f"Month {number_of_months:2} - Income: ${income:10.2f}          Total: ${total:10.2f}")
+        print(f"Month {month:2} - Income: ${income:10.2f}          Total: ${total:10.2f}")
 
 
 def calculate_total_income(incomes, month, total):
