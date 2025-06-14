@@ -10,6 +10,8 @@ def main():
     data = load_data()
     print(data)
 
+    display_subjects(data)
+
 
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
@@ -32,5 +34,9 @@ def load_data():
             data.append(parts)
     return data
 
+def display_subjects(data):
+    """Display subject information in readable format"""
+    for subject_code, lecturer, student_count in data:
+        print(f"{subject_code} is taught by {lecturer} and has {student_count} students")
 
 main()
