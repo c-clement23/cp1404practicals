@@ -16,7 +16,7 @@ def generate_quick_pick(MIN_NUMBER,MAX_NUMBER, NUMBERS_PER_PICK):
         if number not in random_numbers:
             random_numbers.append(number)
     random_numbers.sort()
-    # print(random_numbers)
+
     return random_numbers
 
 main()
