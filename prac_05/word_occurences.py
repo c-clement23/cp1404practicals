@@ -16,5 +16,8 @@ for word in words:
     else:
         word_counts[word] = 1
 
-sorted(word_counts)
-print(word_counts)
+sorted_words = sorted(word_counts)
+# print(word_counts)
+
+for word in sorted_words:
+    print(f"{word} : {word_counts[word]}")
