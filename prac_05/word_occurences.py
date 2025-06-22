@@ -1,8 +1,8 @@
 """
 
 Estimated Time: 20 mins
+Actual time: 37 mins
 """
-
 text = input("Text: ")
 
 words = text.split()
@@ -19,5 +19,7 @@ for word in words:
 sorted_words = sorted(word_counts)
 # print(word_counts)
 
+max_length = max(len(word) for word in sorted_words)
+
 for word in sorted_words:
-    print(f"{word} : {word_counts[word]}")
+    print(f"{word:{max_length}} : {word_counts[word]}")
