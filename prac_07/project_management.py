@@ -37,6 +37,8 @@ def main():
         elif choice == "a":
             project = add_project()
             projects.append(project)
+        elif choice == "u":
+            update_project(projects)
 
 
 
@@ -91,3 +93,19 @@ def add_project():
     completion = int(input("Percent complete: "))
     return Project(name, date_str, priority, cost, completion)
 
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    index = int(input("Project choice: "))
+    project = projects[index]
+    print(project)
+    try:
+        new_percent_str = input("New Percentage: ")
+        new_priority_str = input("New Priority: ")
+
+        new_percent = int(new_percent_str) if new_percent_str else None
+        new_priority = int(new_priority_str) if new_priority_str else None
+
+        project.update(new_percent, new_priority)
+    except ValueError:
+        print("Invalid input. Skipped update.")
