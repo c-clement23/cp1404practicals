@@ -14,7 +14,7 @@ This repo reflects my learning progress and growth in Python development.
 ## Clean Code Lessons Learned
 
 - **Meaningful names**: Choosing clear and descriptive variable, function, and class names makes code easier to understand and maintain.
-- **Single Responsibilty Principle (SRP)**: Writing small, focused functions and classes that do one thing well improves readability and reusability.
+- **Single Responsibility Principle (SRP)**: Writing small, focused functions and classes that do one thing well improves readability and reusability.
 - **DRY Principle (Don't Repeat Yourself)**: Avoiding code duplication by using functions and loops makes code cleaner and more efficient.
 - 
 ## Useful Resources
