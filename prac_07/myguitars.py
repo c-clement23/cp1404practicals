@@ -7,10 +7,16 @@ Actual:
 import csv
 from guitar import Guitar
 
+
 FILENAME = "guitars.csv"
 
 def main():
     guitars = load_guitars(FILENAME)
+
+    print("These are the guitars loaded from file:")
+    display_guitars(guitars)
+
+    add_new_guitars(guitars)
 
 
 
@@ -23,3 +29,26 @@ def load_guitars(filename):
             name, year, cost = row
             guitars.append(Guitar(name, int(year), float(cost)))
         return guitars
+
+def display_guitars(guitars):
+    """Print all guitars in a formatted list"""
+    max_name_length = max(len(guitar.name) for guitar in guitars)
+
+    for i, guitar in enumerate(guitars, 1):
+        vintage_tag = " (vintage)" if guitar.is_vintage() else ""
+        print(f"Guitar {i}: {guitar.name:>{max_name_length}} ({guitar.year}),"
+              f"worth ${guitar.cost:10,.2f}{vintage_tag}")
+
+def add_new_guitars(guitars):
+    """Prompt user to add new guitars"""
+    print("Add new guitars:")
+    name = input("Name: ")
+    while name:
+        try:
+            year = int(input("Year: "))
+            cost = float(input("Cost: $"))
+            guitars.append(Guitar(name, year, cost))
+            print(f"{name} ({year}) : ${cost:,.2f} added.")
+        except ValueError:
+            print("Invalid input. Try again.")
+        name = input("Name: ")
