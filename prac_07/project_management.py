@@ -34,6 +34,9 @@ def main():
         elif choice == "f":
             date_str = input("Show projects that start after date (dd/mm/yyyy): ")
             filter_projects(projects, date_str)
+        elif choice == "a":
+            project = add_project()
+            projects.append(project)
 
 
 
@@ -79,4 +82,12 @@ def filter_projects(projects, date_string):
             print(project)
     except ValueError:
         print("Invalid date format. Please use dd/mm/yyyy.")
+
+def add_project():
+    name = input("Name: ")
+    date_str = input("Satart date (dd/mm/yyyy): ")
+    priority = int(input("Priority: "))
+    cost = float(input("Cost estimate: $"))
+    completion = int(input("Percent complete: "))
+    return Project(name, date_str, priority, cost, completion)
 
