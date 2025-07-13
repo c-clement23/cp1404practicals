@@ -19,7 +19,7 @@ class Project:
         return (f"{self.name}, start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, "
                 f"estimate: ${self.cost_estimate:,.2f}, completion: {self.completion_percentage}%")
 
-    def is_somplete(self):
+    def is_complete(self):
         return self.completion_percentage == 100
 
     def __lt__(self, other):
