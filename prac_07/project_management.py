@@ -2,6 +2,8 @@
 Project Management Program
 Estimated Time: 1.5 hours
 """
+from html.parser import incomplete
+
 from project import Project
 import datetime
 
@@ -27,6 +29,8 @@ def main():
         elif choice == "s":
             filename = input("Filename: ")
             save_projects(filename, projects)
+        elif choice == 'd':
+            display_projects(projects)
 
 
 
@@ -46,3 +50,15 @@ def save_projects(filename, projects):
         for project in projects:
             file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t"
                        f"{project.cost_estimate}\t{project.completion_percentage}\n")
+
+
+def display_projects(projects):
+    incomplete = sorted([p for p in projects if not p.is_complete()])
+    complete = sorted([p for p in projects if p.is_complete()])
+    print("Incomplete projects: ")
+    for project in incomplete:
+        print(f" {project}")
+    print("Completed projects: ")
+    for project in complete:
+        print(f" {project}")
+
