@@ -1,7 +1,7 @@
 """
 Read, sort, update, and save guitar data from guitars.csv
 Estimate: 25 minutes
-Actual:
+Actual: 40 minutes
 """
 
 import csv
