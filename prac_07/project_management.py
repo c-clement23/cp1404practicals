@@ -29,8 +29,11 @@ def main():
         elif choice == "s":
             filename = input("Filename: ")
             save_projects(filename, projects)
-        elif choice == 'd':
+        elif choice == "d":
             display_projects(projects)
+        elif choice == "f":
+            date_str = input("Show projects that start after date (dd/mm/yyyy): ")
+            filter_projects(projects, date_str)
 
 
 
@@ -61,4 +64,19 @@ def display_projects(projects):
     print("Completed projects: ")
     for project in complete:
         print(f" {project}")
+
+
+def get_start_date(project):
+    return project.start_date
+
+def filter_projects(projects, date_string):
+    import datetime
+    try:
+        filter_date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+        filtered_projects = [p for p in projects if p.start_date > filter_date]
+        filtered = sorted(filtered_projects, key=get_start_date)
+        for project in filtered:
+            print(project)
+    except ValueError:
+        print("Invalid date format. Please use dd/mm/yyyy.")
 
