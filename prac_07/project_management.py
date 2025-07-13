@@ -39,6 +39,15 @@ def main():
             projects.append(project)
         elif choice == "u":
             update_project(projects)
+        else:
+            print("Invalid menu choice.")
+        print(MENU)
+        choice = input(">>> ").lower()
+
+    save = input(f"Would you like to save to {FILENAME}? ").lower()
+    if save in ("yes", "y"):
+        save_projects(FILENAME, projects)
+    print("Thank you for using custom-built project management software.")
 
 
 
@@ -109,3 +118,6 @@ def update_project(projects):
         project.update(new_percent, new_priority)
     except ValueError:
         print("Invalid input. Skipped update.")
+
+if __name__ == '__main__':
+    main()
