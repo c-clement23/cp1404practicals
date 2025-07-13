@@ -18,6 +18,12 @@ def main():
 
     add_new_guitars(guitars)
 
+    guitars.sort()
+
+    print("\nThese are the guitars sorted by year:")
+    display_guitars(guitars)
+
+    save_guitars(FILENAME, guitars)
 
 
 def load_guitars(filename):
@@ -52,3 +58,15 @@ def add_new_guitars(guitars):
         except ValueError:
             print("Invalid input. Try again.")
         name = input("Name: ")
+
+def save_guitars(filename, guitars):
+    """Save the updated list of guitars to CSV."""
+    with open(filename, 'w', newline='') as out_file:
+        writer = csv.writer(out_file)
+        for guitar in guitars:
+            writer.writerow([guitar.name, guitar.year, guitar.cost])
+    print(f"\nGuitars saved to {filename}.")
+
+
+if __name__ == "__main__":
+    main()
