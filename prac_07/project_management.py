@@ -24,6 +24,9 @@ def main():
         if choice == "l":
             filename = input("Filename: ")
             projects = load_projects(filename)
+        elif choice == "s":
+            filename = input("Filename: ")
+            save_projects(filename, projects)
 
 
 
@@ -36,3 +39,10 @@ def load_projects(filename):
             project = Project(*parts)
             projects.append(project)
         return projects
+
+def save_projects(filename, projects):
+    with open(filename, "w") as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t"
+                       f"{project.cost_estimate}\t{project.completion_percentage}\n")
