@@ -23,5 +23,16 @@ class MilesConverterApp(App):
         km = miles * MILES_TO_KILOMETERS
         self.result_text = f"{km:.5f}"
 
+    def handle_increment(self, change):
+        """Increase or decrease the miles value and update result."""
+        miles_str =self.root.ids.input_miles.text
+        try:
+            miles = float(miles_str)
+        except ValueError:
+            miles = 0.0
+        miles += change
+        self.root.ids.input_miles.text = str(miles)
+        self.convert()
+
 
 MilesConverterApp().run()
