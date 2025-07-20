@@ -14,10 +14,23 @@ BoxLayout:
 
             Button:
                 text: 'Up'
-                background_color: (0.3, 0.3, 0.3, 1)
+                background_color: (0.8, 0.8, 0.8, 1)
                 color: (1,1,1,1)
 
             Button:
                 text: 'Down'
-                background_color: (0.3, 0.3, 0.3, 1)
+                background_color: (0.8, 0.8, 0.8, 1)
                 color: (1,1,1,1)
+
+    Button:
+        text: 'Convert miles to km'
+        height: '60dp'
+        background_color: (0.8, 0.8, 0.8, 1)
+        color: (1,1,1,1)
+        on_press: app.convert()
+
+    Label:
+        id: result_label
+        text: ''
+        font_size: 32
+        color: (1,1,0,1)
