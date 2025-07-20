@@ -16,3 +16,11 @@ class DynamicLabelsApp(App):
         self.root = Builder.load_file('dynamic_labels.kv')
         self.create_labels()
         return self.root
+
+    def create_labels(self):
+        """Create a Label for each name and add to layout."""
+        for name in self.names:
+            label = Label(text=name)
+            self.root.ids.labels_box.add_widget(label)
+
+DynamicLabelsApp().run()
