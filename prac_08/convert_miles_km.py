@@ -13,5 +13,12 @@ class MilesConverterApp(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
+    def convert(self):
+        """Convert miles to km using the input"""
+        miles_str = self.root.ids.input_miles.text
+        miles = float(miles_str)
+        km = miles * MILES_TO_KILOMETERS
+        self.result_text = f"{km:.5f}"
+
 
 MilesConverterApp().run()
