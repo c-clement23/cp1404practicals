@@ -16,7 +16,10 @@ class MilesConverterApp(App):
     def convert(self):
         """Convert miles to km using the input"""
         miles_str = self.root.ids.input_miles.text
-        miles = float(miles_str)
+        try:
+            miles = float(miles_str)
+        except ValueError:
+            miles = 0.0
         km = miles * MILES_TO_KILOMETERS
         self.result_text = f"{km:.5f}"
 
