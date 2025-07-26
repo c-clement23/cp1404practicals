@@ -9,3 +9,7 @@ class Band:
     def add(self, musicians):
         """Add an instrument to musician's collection."""
         self.musicians.append(musicians)
+
+    def __str__(self):
+        """Return a string representation of the Band"""
+        return f"{self.name} ({', '.join(str(musician) for musician in self.musicians)})"
