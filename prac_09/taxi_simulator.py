@@ -53,6 +53,11 @@ def main():
         print(MENU)
         menu_choice = input(">>> ").lower()
 
+    print(f"Total trip cost: ${total_bill:.2f}")
+    print("Taxis are now:")
+    for i, taxi in enumerate(taxis):
+        print(f"{i} - {taxi}")
+
 
 if __name__ == '__main__':
     main()
