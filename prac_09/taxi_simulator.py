@@ -19,15 +19,21 @@ def main():
             print("Taxis available: ")
             for i, taxi in enumerate(taxis):
                 print(f"{i} - {taxi}")
-
-            taxi_choice = int(input("Choose taxi: "))
-            if 0 <= taxi_choice < len(taxis):
-                current_taxi = taxis[taxi_choice]
-            else:
-                print("Invalid taxi choice")
+            try:
+                taxi_choice = int(input("Choose taxi: "))
+                if 0 <= taxi_choice < len(taxis):
+                    current_taxi = taxis[taxi_choice]
+                else:
+                    print("Invalid taxi choice")
+            except ValueError:
+                print("Invalid input; please enter a number")
 
         elif menu_choice == "d":
-            pass
+            if current_taxi is None:
+                print("You need to choose a taxi before you can drive")
+            else:
+                distance = float(input("Drive how far? "))
+
         else:
             print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
@@ -35,6 +41,9 @@ def main():
         print(MENU)
         menu_choice = input(">>> ").lower()
 
+
+if __name__ == '__main__':
+    main()
 
 
 
