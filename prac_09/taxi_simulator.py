@@ -13,18 +13,27 @@ def main():
 
     print("Let's drive!")
     print(MENU)
-    choice = input(">>> ").lower()
-    while choice != "q":
-        if choice == "c":
-            pass
-        elif choice == "d":
+    menu_choice = input(">>> ").lower()
+    while menu_choice != "q":
+        if menu_choice == "c":
+            print("Taxis available: ")
+            for i, taxi in enumerate(taxis):
+                print(f"{i} - {taxi}")
+
+            taxi_choice = int(input("Choose taxi: "))
+            if 0 <= taxi_choice < len(taxis):
+                current_taxi = taxis[taxi_choice]
+            else:
+                print("Invalid taxi choice")
+
+        elif menu_choice == "d":
             pass
         else:
             print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
 
         print(MENU)
-        choice = input(">>> ").lower()
+        menu_choice = input(">>> ").lower()
 
 
 
