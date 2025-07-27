@@ -9,3 +9,23 @@ def main():
     current_taxi = None
     total_bill = 0.0
 
+    MENU = "q)uit, c)hoose taxi, d)rive"
+
+    print("Let's drive!")
+    print(MENU)
+    choice = input(">>> ").lower()
+    while choice != "q":
+        if choice == "c":
+            pass
+        elif choice == "d":
+            pass
+        else:
+            print("Invalid option")
+        print(f"Bill to date: ${total_bill:.2f}")
+
+        print(MENU)
+        choice = input(">>> ").lower()
+
+
+
+
