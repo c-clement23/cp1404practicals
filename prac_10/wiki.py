@@ -7,16 +7,16 @@ def main():
         try:
             page = wikipedia.page(query, auto_suggest=False)
 
-            print(f"{page.title}")
-            print(f"{page.summary}")
+            print(page.title)
+            print(page.summary)
             print(page.url)
+
+        except wikipedia.exceptions.PageError:
+            print(f'Page id "{query}" does not match any pages. Try another id!')
 
         except wikipedia.exceptions.DisambiguationError as e:
             print("We need a more specific title. Try one of the following, or a new search:")
             print(e.options)
-
-        except wikipedia.exceptions.PageError:
-            print(f'Page id "{query}" does not match any pages. Try another id!')
 
         query = input("Enter page title: ")
 
