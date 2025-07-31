@@ -5,7 +5,7 @@ def main():
     query = input("Enter a page title or phrase (blank to quit): ")
     while query != "":
         try:
-            page = wikipedia.page(query)
+            page = wikipedia.page(query, auto_suggest=False)
             print(f"Title: {page.title}")
             print(f"URL: {page.url}")
             print(f"Summary: {wikipedia.summary(query, sentences=3)}")
