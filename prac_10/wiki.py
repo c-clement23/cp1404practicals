@@ -4,10 +4,16 @@ def main():
     query = input("Enter page title: ")
 
     while query != "":
-        page = wikipedia.page(query)
+        try:
+            page = wikipedia.page(query, auto_suggest=False)
 
-        print(f"Title: {page.title}")
-        print(f"Summary: \n{wikipedia.summary(query,sentences=3)}")
+            print(f"{page.title}")
+            print(f"{wikipedia.summary(query, sentences=3)}")
+            print(page.url)
+
+        except wikipedia.exceptions.PageError:
+            print(f'Page id "{query}" does not match any pages. Try another id!')
+
         query = input("Enter page title: ")
 
 if __name__ == "__main__":
