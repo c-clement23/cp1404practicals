@@ -8,7 +8,7 @@ def main():
             page = wikipedia.page(query, auto_suggest=False)
 
             print(f"{page.title}")
-            print(f"{wikipedia.summary(query, sentences=3)}")
+            print(f"{page.summary}")
             print(page.url)
 
         except wikipedia.exceptions.DisambiguationError as e:
@@ -19,6 +19,8 @@ def main():
             print(f'Page id "{query}" does not match any pages. Try another id!')
 
         query = input("Enter page title: ")
+
+    print("Thank you.")
 
 if __name__ == "__main__":
     main()
